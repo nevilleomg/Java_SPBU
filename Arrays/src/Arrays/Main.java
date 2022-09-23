@@ -14,7 +14,10 @@ public class Main {
         System.out.println(Arrays.toString(ArrayTasks.copyShift(a)));
         int[][] b = new int[5][3];
         MultidimentionalArrays.fillArray(b);
+        System.out.println("----------------------");
         MultidimentionalArrays.printTable(b);
+        System.out.println("----------------------");
+        MultidimentionalArrays.printTableAligned(b);
     }
 }
 
@@ -71,19 +74,27 @@ class ArrayTasks {
 
 class MultidimentionalArrays {
     public static void fillArray(int[][] a) {
-        for (int[] ints : a) {
-            Arrays.fill(ints, 5);
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                int random_number = (int) (Math.random() * 10000);
+                a[i][j] = random_number;
+            }
         }
     }
     public static void printTable(int[][] a) {
         for (int[] ints : a) {
             for (int anInt : ints) {
-                System.out.print(anInt + ' ');
+                System.out.print(anInt + " ");
             }
             System.out.println();
         }
     }
     public static void printTableAligned(int[][] a) {
-        
+        for (int[] ints : a) {
+            for (int anInt : ints) {
+                System.out.print("\t" + anInt);
+            }
+            System.out.println();
+        }
     }
 }
