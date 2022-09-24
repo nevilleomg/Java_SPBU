@@ -18,6 +18,7 @@ public class Main {
         MultidimentionalArrays.printTable(b);
         System.out.println("----------------------");
         MultidimentionalArrays.printTableAligned(b);
+        MultidimentionalArrays.thirdTask();
     }
 }
 
@@ -73,28 +74,72 @@ class ArrayTasks {
 }
 
 class MultidimentionalArrays {
-    public static void fillArray(int[][] a) {
+    public static void fillArray(int[][] a) { //создаёт двумерный массив с равновероятным количеством разрядов у элем.
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
-                int random_number = (int) (Math.random() * 10000);
+                int digit_number  = 1 + (int) (Math.random() * 5);
+                int random_number = 0;
+                if (digit_number == 1) { random_number = (int) (Math.random() * 9); }
+                if (digit_number == 2) { random_number = (int) (Math.random() * 99); }
+                if (digit_number == 3) { random_number = (int) (Math.random() * 999); }
+                if (digit_number == 4) { random_number = (int) (Math.random() * 9999); }
+                if (digit_number == 5) { random_number = (int) (Math.random() * 99999); }
                 a[i][j] = random_number;
             }
         }
     }
-    public static void printTable(int[][] a) {
-        for (int[] ints : a) {
-            for (int anInt : ints) {
-                System.out.print(anInt + " ");
+    public static void printTable(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int i : row) {
+                System.out.print(i + " ");
             }
             System.out.println();
         }
     }
-    public static void printTableAligned(int[][] a) {
-        for (int[] ints : a) {
-            for (int anInt : ints) {
-                System.out.print("\t" + anInt);
+    public static void printTableAligned(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int i : row) {
+                System.out.printf("%6d", i);
             }
             System.out.println();
+        }
+    }
+
+    public static void thirdTask () {
+        char[][] c = createTable(20, '.');
+        System.out.println("- Изначальный масс.: -");
+        printTableAligned(c);
+
+        System.out.println("- Заполним строки: -");
+        fillFirstAndLastLines(c, '#');
+        printTableAligned((c));
+
+        System.out.println("- Заполним столбцы: -");
+        fillFirstAndLastColumns(c, '#');
+        printTableAligned((c));
+    }
+    private static void printTableAligned(char[][] matrix) {
+        for (char[] row : matrix) {
+            for (int i : row) {
+                System.out.printf(Character.toString(i));
+            }
+            System.out.println();
+        }
+    }
+    private static char[][] createTable(int x, char s) {
+        char[][] c = new char[x][x];
+        for (char[] row: c)
+            Arrays.fill(row, s);
+        return c;
+    }
+    private static void fillFirstAndLastLines(char[][] matrix, char s) {
+        Arrays.fill(matrix[0], s);
+        Arrays.fill(matrix[matrix.length - 1], s);
+    }
+    private static void fillFirstAndLastColumns(char[][] matrix, char s) {
+        for (char[] row: matrix) {
+            row[0] = s;
+            row[matrix.length - 1] = s;
         }
     }
 }
