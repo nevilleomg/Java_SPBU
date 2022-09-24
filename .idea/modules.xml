@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Arrays/Arrays.iml" filepath="$PROJECT_DIR$/Arrays/Arrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/IntroTasks/IntroTasks.iml" filepath="$PROJECT_DIR$/IntroTasks/IntroTasks.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Java_SPBU.iml" filepath="$PROJECT_DIR$/.idea/Java_SPBU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Matrix22/Matrix22.iml" filepath="$PROJECT_DIR$/Matrix22/Matrix22.iml" />
     </modules>
   </component>
 </project>

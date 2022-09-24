@@ -23,7 +23,7 @@ public class IntroTasks {
     }
 
     private static boolean introTask3Digits(int x) {
-        return Math.abs(x) / 1000 == 0 && Math.abs(x) % 1000 >= 100;
+        return Math.abs(x) > 99 && Math.abs(x) < 1000;
     }
 
     private static boolean IntroTaskLast5(int x) {
